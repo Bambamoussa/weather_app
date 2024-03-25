@@ -1,0 +1,6 @@
+{
+  "helloWorld": "bonjour",
+  "weather_app": "Weather App",
+  "noInternet": "Pas d'internet",
+  "appUnderMaintenance" : "l'application est en maintenance"
+}

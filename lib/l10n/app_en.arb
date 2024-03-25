@@ -1,0 +1,9 @@
+{
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "weather_app":"Weather App",
+   "noInternet": "No Internet access",
+  "appUnderMaintenance": "the application is under maintenance"
+}
