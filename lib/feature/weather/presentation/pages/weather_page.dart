@@ -14,6 +14,7 @@ class WeatherPage extends StatelessWidget {
       body: Center(
         child: Text(AppLocalizations.of(context)?.helloWorld ?? ''),
       ),
+       
     );
   }
 }

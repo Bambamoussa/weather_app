@@ -2,5 +2,8 @@
   "helloWorld": "bonjour",
   "weather_app": "Weather App",
   "noInternet": "Pas d'internet",
-  "appUnderMaintenance" : "l'application est en maintenance"
+  "appUnderMaintenance" : "l'application est en maintenance",
+  "home": "Accueil",
+  "add":"Ajouter",
+  "city":"Ville"
 }

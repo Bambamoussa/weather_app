@@ -5,5 +5,8 @@
   },
   "weather_app":"Weather App",
    "noInternet": "No Internet access",
-  "appUnderMaintenance": "the application is under maintenance"
+  "appUnderMaintenance": "the application is under maintenance",
+  "home": "Home",
+  "add":"Add",
+  "city":"City"
 }
