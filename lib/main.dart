@@ -1,8 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:weather/core/router/app_router.dart';
+import 'package:weather/core/styles/weather_theme.dart';
+import 'di/injection_container.dart' as di;
+ 
 
-void main() {
+ Future<void>  main() async {
+ WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  di.init();
   runApp(const WeatherApp());
 }
 
@@ -15,10 +22,7 @@ class WeatherApp extends StatelessWidget {
     return MaterialApp.router(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: weatherTheme,
       routerConfig: RouteGenerator.goRouter,
     );
   }

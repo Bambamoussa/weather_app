@@ -5,9 +5,10 @@ extension Injections on GetIt {
     registerSingleton(instanceToInject);
   }
 
- void injectNetwork<T extends Object>(FactoryFunc<T> func) {
+  void injectNetwork<T extends Object>(FactoryFunc<T> func) {
     registerFactory(func);
   }
+
   void injectRepository<T extends Object>(FactoryFunc<T> func) {
     registerLazySingleton(func);
   }
@@ -20,7 +21,7 @@ extension Injections on GetIt {
     registerLazySingleton(func);
   }
 
-  void injectRiverpod<T extends Object>(FactoryFunc<T> func) {
+  void injectCubit<T extends Object>(FactoryFunc<T> func) {
     registerFactory(func);
   }
 }

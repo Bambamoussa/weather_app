@@ -1,16 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weather/core/router/route_name.dart';
-import 'package:weather/feature/weather/presentation/pages/weather_page.dart';
+import 'package:weather/features/auth/presentation/pages/login_page.dart';
+import 'package:weather/features/auth/presentation/pages/register_page.dart';
+import 'package:weather/features/weather/presentation/pages/weather_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RouteGenerator {
   RouteGenerator._();
   static GoRouter goRouter = GoRouter(
-    initialLocation: '/home',
+    initialLocation: '/register',
     navigatorKey: GlobalKey<NavigatorState>(),
     debugLogDiagnostics: true,
     routes: <RouteBase>[
+      GoRoute(
+        path: '/register',
+        name: RouteName.register,
+        builder: (context, state) => const RegisterPage(),
+      ),
+      GoRoute(
+        path: '/login',
+        name: RouteName.login,
+        builder: (context, state) => const LoginPage(),
+      ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return ScaffoldWithNestedNavigation(navigationShell: navigationShell);

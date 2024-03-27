@@ -8,5 +8,22 @@
   "appUnderMaintenance": "the application is under maintenance",
   "home": "Home",
   "add":"Add",
-  "city":"City"
+  "city":"City",
+  "enterName": "Enter your full name",
+  "fullName":"Full name",
+  "enterEmail":  "Please enter your email",
+  "enterPassword":  "Please enter your password",
+  "errormessage":"please fill in all fields correctly",
+   "alreadyAccount":"already have an account ?",
+   "login":"Login",
+   "register":"Register",
+   "userNotFound":"No user found for that email.",
+   "passwordMessage":"Password should be at least 6 characters",
+  "fillFields": "Please fill all the fields",
+  "emailValid":"Please enter a valid email",
+  "login":"Log In",
+  "emailAdress":"Email Adress",
+  "password":"Password",
+  "notAccount":"Don't Have An Account ?",
+  "invalidCredential":"invalid credential"
 }

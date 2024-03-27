@@ -20,6 +20,7 @@ class Failure with _$Failure {
 
   const factory Failure.server({String? message}) = FailureServer;
 
+
   const Failure._();
 
   String get appIconsFailure {
