@@ -25,5 +25,11 @@
   "emailAdress":"Email Adress",
   "password":"Password",
   "notAccount":"Don't Have An Account ?",
-  "invalidCredential":"invalid credential"
+  "invalidCredential":"invalid credential",
+  "enterCity": "please enter the name of a city",
+  "city":"city",
+  "registerCity":"Register City",
+  "cityErrorMessage": "the city has not been registered",
+   "citySuccessMessage": "the city has been successfully registered",
+   "nothingCity":"No cities registered"
 }

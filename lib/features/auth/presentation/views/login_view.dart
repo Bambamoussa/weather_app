@@ -41,7 +41,7 @@ class _LoginViewState extends State<LoginView> {
               WeatherColors.errorD500,
             );
           },
-          success: () => context.goNamed(RouteName.home),
+          success: () => context.goNamed(RouteName.weather),
         );
       },
       builder: (context, state) => ScaffoldMessenger(

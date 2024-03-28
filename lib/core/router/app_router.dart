@@ -3,11 +3,13 @@ import 'package:go_router/go_router.dart';
 import 'package:weather/core/router/route_name.dart';
 import 'package:weather/features/auth/presentation/pages/login_page.dart';
 import 'package:weather/features/auth/presentation/pages/register_page.dart';
-import 'package:weather/features/weather/presentation/pages/weather_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:weather/features/weather/presentation/pages/register_city_page.dart';
+import 'package:weather/features/weather/presentation/views/weather_view.dart';
 
 class RouteGenerator {
   RouteGenerator._();
+
   static GoRouter goRouter = GoRouter(
     initialLocation: '/register',
     navigatorKey: GlobalKey<NavigatorState>(),
@@ -29,13 +31,13 @@ class RouteGenerator {
         },
         branches: [
           StatefulShellBranch(
-            navigatorKey: GlobalKey<NavigatorState>(debugLabel: 'HomeNav'),
+            navigatorKey: GlobalKey<NavigatorState>(debugLabel: 'WeatherNav'),
             routes: [
               GoRoute(
-                path: '/home',
-                name: RouteName.home,
+                path: '/weather',
+                name: RouteName.weather,
                 pageBuilder: (context, state) => const NoTransitionPage(
-                  child: WeatherPage(),
+                  child: WeatherView(),
                 ),
               ),
             ],
@@ -46,7 +48,7 @@ class RouteGenerator {
               GoRoute(
                 path: '/add',
                 pageBuilder: (context, state) => const NoTransitionPage(
-                  child: Text('data'),
+                  child: RegisterCityPage(),
                 ),
               ),
             ],
@@ -79,7 +81,7 @@ class ScaffoldWithNestedNavigation extends StatelessWidget {
 
   void _goBranch(int index, BuildContext context) {
     if (index == 0) {
-      context.go('/home');
+      context.go('/weather');
     } else {
       navigationShell.goBranch(
         index,

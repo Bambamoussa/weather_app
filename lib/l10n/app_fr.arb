@@ -21,5 +21,11 @@
   "emailAdress":"Adresse Email",
   "password":"mot de passe",
   "notAccount" : "Vous n'avez pas de compte ?",
-  "invalidCredential" : "crédential non valide"
+  "invalidCredential" : "crédential non valide",
+  "enterCity":"veuillez entrer le nom d'une ville",
+  "city":"ville",
+  "registerCity":"enregistrer une ville",
+  "cityErrorMessage": "la ville n'a pas été enregistrée",
+  "citySuccessMessage":"la ville a été enregistrée avec succes ",
+  "nothingCity":"Aucune ville n'a été enregistrée"
 }

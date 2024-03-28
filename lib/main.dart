@@ -1,29 +1,21 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:weather/core/router/app_router.dart';
-import 'package:weather/core/styles/weather_theme.dart';
+import 'package:weather/weather_app.dart';
 import 'di/injection_container.dart' as di;
  
 
  Future<void>  main() async {
  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+    apiKey: "AIzaSyCCtzV9i-ck-u0F0CRteG0c2F8XNvij8c4",
+    appId: "1:682523459689:android:2758bbe2fd5290d4fc62f8",
+    messagingSenderId: 'sendid',
+    projectId: "weather-59ec7",
+     
+  )
+  );
   di.init();
   runApp(const WeatherApp());
 }
 
-class WeatherApp extends StatelessWidget {
-  const WeatherApp({super.key});
-
-  // This widget is the root of my application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp.router(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      theme: weatherTheme,
-      routerConfig: RouteGenerator.goRouter,
-    );
-  }
-}

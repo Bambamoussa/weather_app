@@ -16,9 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$UserEntity {
-  String? get email => throw _privateConstructorUsedError;
-  String? get cid => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get city => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserEntityCopyWith<UserEntity> get copyWith =>
@@ -31,7 +30,7 @@ abstract class $UserEntityCopyWith<$Res> {
           UserEntity value, $Res Function(UserEntity) then) =
       _$UserEntityCopyWithImpl<$Res, UserEntity>;
   @useResult
-  $Res call({String? email, String? cid, String? name});
+  $Res call({String id, String city});
 }
 
 /// @nodoc
@@ -47,23 +46,18 @@ class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
-    Object? cid = freezed,
-    Object? name = freezed,
+    Object? id = null,
+    Object? city = null,
   }) {
     return _then(_value.copyWith(
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cid: freezed == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      city: null == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -76,7 +70,7 @@ abstract class _$$UserEntityImplCopyWith<$Res>
       __$$UserEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? email, String? cid, String? name});
+  $Res call({String id, String city});
 }
 
 /// @nodoc
@@ -90,23 +84,18 @@ class __$$UserEntityImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
-    Object? cid = freezed,
-    Object? name = freezed,
+    Object? id = null,
+    Object? city = null,
   }) {
     return _then(_$UserEntityImpl(
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cid: freezed == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      city: null == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -114,18 +103,16 @@ class __$$UserEntityImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UserEntityImpl implements _UserEntity {
-  const _$UserEntityImpl({this.email, this.cid, this.name});
+  const _$UserEntityImpl({required this.id, required this.city});
 
   @override
-  final String? email;
+  final String id;
   @override
-  final String? cid;
-  @override
-  final String? name;
+  final String city;
 
   @override
   String toString() {
-    return 'UserEntity(email: $email, cid: $cid, name: $name)';
+    return 'UserEntity(id: $id, city: $city)';
   }
 
   @override
@@ -133,13 +120,12 @@ class _$UserEntityImpl implements _UserEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserEntityImpl &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.cid, cid) || other.cid == cid) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.city, city) || other.city == city));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, cid, name);
+  int get hashCode => Object.hash(runtimeType, id, city);
 
   @JsonKey(ignore: true)
   @override
@@ -150,16 +136,13 @@ class _$UserEntityImpl implements _UserEntity {
 
 abstract class _UserEntity implements UserEntity {
   const factory _UserEntity(
-      {final String? email,
-      final String? cid,
-      final String? name}) = _$UserEntityImpl;
+      {required final String id,
+      required final String city}) = _$UserEntityImpl;
 
   @override
-  String? get email;
+  String get id;
   @override
-  String? get cid;
-  @override
-  String? get name;
+  String get city;
   @override
   @JsonKey(ignore: true)
   _$$UserEntityImplCopyWith<_$UserEntityImpl> get copyWith =>

@@ -16,12 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$UserModels {
-  @JsonKey(name: 'cid')
-  String? get cid => throw _privateConstructorUsedError;
-  @JsonKey(name: 'name')
-  String? get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'email')
-  String? get email => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get city => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserModelsCopyWith<UserModels> get copyWith =>
@@ -34,10 +30,7 @@ abstract class $UserModelsCopyWith<$Res> {
           UserModels value, $Res Function(UserModels) then) =
       _$UserModelsCopyWithImpl<$Res, UserModels>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'cid') String? cid,
-      @JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'email') String? email});
+  $Res call({String id, String city});
 }
 
 /// @nodoc
@@ -53,23 +46,18 @@ class _$UserModelsCopyWithImpl<$Res, $Val extends UserModels>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cid = freezed,
-    Object? name = freezed,
-    Object? email = freezed,
+    Object? id = null,
+    Object? city = null,
   }) {
     return _then(_value.copyWith(
-      cid: freezed == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      city: null == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -82,10 +70,7 @@ abstract class _$$UserModelsImplCopyWith<$Res>
       __$$UserModelsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'cid') String? cid,
-      @JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'email') String? email});
+  $Res call({String id, String city});
 }
 
 /// @nodoc
@@ -99,23 +84,18 @@ class __$$UserModelsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cid = freezed,
-    Object? name = freezed,
-    Object? email = freezed,
+    Object? id = null,
+    Object? city = null,
   }) {
     return _then(_$UserModelsImpl(
-      cid: freezed == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      city: null == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -123,24 +103,16 @@ class __$$UserModelsImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UserModelsImpl implements _UserModels {
-  const _$UserModelsImpl(
-      {@JsonKey(name: 'cid') this.cid,
-      @JsonKey(name: 'name') this.name,
-      @JsonKey(name: 'email') this.email});
+  const _$UserModelsImpl({required this.id, required this.city});
 
   @override
-  @JsonKey(name: 'cid')
-  final String? cid;
+  final String id;
   @override
-  @JsonKey(name: 'name')
-  final String? name;
-  @override
-  @JsonKey(name: 'email')
-  final String? email;
+  final String city;
 
   @override
   String toString() {
-    return 'UserModels(cid: $cid, name: $name, email: $email)';
+    return 'UserModels(id: $id, city: $city)';
   }
 
   @override
@@ -148,13 +120,12 @@ class _$UserModelsImpl implements _UserModels {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserModelsImpl &&
-            (identical(other.cid, cid) || other.cid == cid) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.email, email) || other.email == email));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.city, city) || other.city == city));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, cid, name, email);
+  int get hashCode => Object.hash(runtimeType, id, city);
 
   @JsonKey(ignore: true)
   @override
@@ -165,19 +136,13 @@ class _$UserModelsImpl implements _UserModels {
 
 abstract class _UserModels implements UserModels {
   const factory _UserModels(
-      {@JsonKey(name: 'cid') final String? cid,
-      @JsonKey(name: 'name') final String? name,
-      @JsonKey(name: 'email') final String? email}) = _$UserModelsImpl;
+      {required final String id,
+      required final String city}) = _$UserModelsImpl;
 
   @override
-  @JsonKey(name: 'cid')
-  String? get cid;
+  String get id;
   @override
-  @JsonKey(name: 'name')
-  String? get name;
-  @override
-  @JsonKey(name: 'email')
-  String? get email;
+  String get city;
   @override
   @JsonKey(ignore: true)
   _$$UserModelsImplCopyWith<_$UserModelsImpl> get copyWith =>
