@@ -8,6 +8,8 @@ void _featureAuth() {
     ..injectRepository<AuthenticationRepository>(
       () => AuthenticationRepositoryImpl(
         networkInfo: sl(),
+        firebaseAuth: FirebaseAuth.instance,
+        firebaseStore: FirebaseFirestore.instance,
       ),
     )
     // UseCases

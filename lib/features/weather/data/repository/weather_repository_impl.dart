@@ -15,12 +15,14 @@ class WeatherRepositoryImpl extends WeatherRepository with BaseRepository {
   WeatherRepositoryImpl({
     required this.networkInfo,
     required this.weatherRemoteDataSource,
+    required this.firebaseAuth,
+    required this.firebaseStore,
   });
 
-  final firebaseAuth = FirebaseAuth.instance;
-  final firebaseStore = FirebaseFirestore.instance;
   final NetworkInfo networkInfo;
   final WeatherRemoteDataSource weatherRemoteDataSource;
+  final FirebaseAuth firebaseAuth;
+  final FirebaseFirestore firebaseStore;
 
   @override
   Future<Result<bool>> registerCity(String city) async {

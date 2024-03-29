@@ -10,11 +10,14 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository
     with BaseRepository {
   AuthenticationRepositoryImpl({
     required this.networkInfo,
+    required this.firebaseAuth,
+    required this.firebaseStore,
   });
 
-  final firebaseAuth = FirebaseAuth.instance;
-  final firebaseStore = FirebaseFirestore.instance;
+ 
   final NetworkInfo networkInfo;
+  final FirebaseAuth firebaseAuth;
+  final FirebaseFirestore  firebaseStore;
 
   @override
   Future<Result<bool>> logIn(

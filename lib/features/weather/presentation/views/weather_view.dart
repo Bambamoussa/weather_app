@@ -22,9 +22,10 @@ class WeatherView extends StatelessWidget {
           return cityList.isEmpty
               ? Center(
                   child: Text(
-                  AppLocalizations.of(context)?.nothingCity ?? '',
-                  style: WeatherTextStyle.titleLarge700,
-                ))
+                    AppLocalizations.of(context)?.nothingCity ?? '',
+                    style: WeatherTextStyle.titleLarge700,
+                  ),
+                )
               : ListView.separated(
                   separatorBuilder: (context, index) =>
                       const SizedBox(height: 16.0),

@@ -9,7 +9,11 @@ void _featureWeather() {
     // Repositories
     ..injectRepository<WeatherRepository>(
       () => WeatherRepositoryImpl(
-          networkInfo: sl(), weatherRemoteDataSource: sl()),
+        networkInfo: sl(),
+        weatherRemoteDataSource: sl(),
+        firebaseAuth: FirebaseAuth.instance,
+        firebaseStore: FirebaseFirestore.instance,
+      ),
     )
     // UseCases
     ..injectUseCase<RegisterCityUseCases>(
@@ -27,7 +31,6 @@ void _featureWeather() {
         sl(),
       ),
     )
-
 
     //cubit
     ..injectCubit<RegisterCityCubit>(
