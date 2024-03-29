@@ -20,6 +20,7 @@ MainWeathersModels _$MainWeathersModelsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MainWeathersModels {
+// ignore: invalid_annotation_target
   @JsonKey(name: 'temp')
   double get temperature =>
       throw _privateConstructorUsedError; // ignore: invalid_annotation_target
