@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather/core/styles/weather_colors.dart';
+import 'package:weather/core/styles/weather_text_style.dart';
 
 class CustomButton extends StatelessWidget {
   final String mainButtonLabel;
@@ -16,15 +17,14 @@ class CustomButton extends StatelessWidget {
     return Material(
       borderRadius: BorderRadius.circular(25),
       child: MaterialButton(
-        color: WeatherColors.secondaryC500,
+        height: 50,
+        color: WeatherColors.successSU500,
         minWidth: double.infinity,
         onPressed: onPressed,
         child: Text(
           mainButtonLabel,
-          style: const TextStyle(
+          style: WeatherTextStyle.titleMedium700.copyWith(
             color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
           ),
         ),
       ),

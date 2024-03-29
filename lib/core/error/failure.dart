@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:weather/core/constants/app_icons_constant.dart';
+import 'package:weather/core/constants/app_image_constant.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 part 'failure.freezed.dart';
 
@@ -25,11 +25,11 @@ class Failure with _$Failure {
 
   String get appIconsFailure {
     if (this is FailureOffline || this is FailureTimeout) {
-      return AppIcons.noInternet;
+      return AppImages.noInternet;
     } else if (this is FailureServer) {
-      return AppIcons.maintenance;
+      return AppImages.maintenance;
     } else {
-      return AppIcons.problem;
+      return AppImages.problem;
     }
   }
 

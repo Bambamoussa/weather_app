@@ -31,5 +31,12 @@
   "registerCity":"Register City",
   "cityErrorMessage": "the city has not been registered",
    "citySuccessMessage": "the city has been successfully registered",
-   "nothingCity":"No cities registered"
+   "nothingCity":"No cities registered",
+   "temperature": "Temperature",
+   "hasImpression":"has the impression",
+   "pressure":"pressure",
+   "humidity":"Humidity",
+   "notWeather": "No weather for this town"
+   
+
 }

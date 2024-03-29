@@ -47,6 +47,9 @@ class _LoginViewState extends State<LoginView> {
       builder: (context, state) => ScaffoldMessenger(
         key: _scaffoldKey,
         child: Scaffold(
+          appBar: AppBar(
+            title: Text(AppLocalizations.of(context)?.weather_app ?? ''),
+          ),
           body: Center(
             child: SingleChildScrollView(
               keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,

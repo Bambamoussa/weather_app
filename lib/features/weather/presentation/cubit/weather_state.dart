@@ -2,9 +2,12 @@ part of 'weather_cubit.dart';
 
 @freezed
 class WeatherState with _$WeatherState {
-  const factory WeatherState.initial() = _WeatherStateInitial;
-  const factory WeatherState.loading() = _WeatherStateLoading;
-  const factory WeatherState.success() = _WeatherStateSuccess;
-  const factory WeatherState.error({required String messageFailure}) =
-      _WeatherStateError;
+  const factory WeatherState.initial() = _WeatherInitial;
+  const factory WeatherState.loading() = _WeatherLoading;
+  const factory WeatherState.loaded({
+    required WeatherEntity weatherEntity,
+  }) = _WeatherLoaded;
+  const factory WeatherState.error(
+      {required Failure failure,
+      required String messageFailure}) = _WeatherError;
 }

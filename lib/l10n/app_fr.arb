@@ -27,5 +27,10 @@
   "registerCity":"enregistrer une ville",
   "cityErrorMessage": "la ville n'a pas été enregistrée",
   "citySuccessMessage":"la ville a été enregistrée avec succes ",
-  "nothingCity":"Aucune ville n'a été enregistrée"
+  "nothingCity":"Aucune ville n'a été enregistrée",
+  "temperature": "Température",
+  "hasImpression":"a l'impression d'être",
+  "pressure":"pressure",
+  "humidity":"Humidity",
+  "notWeather": "Pas de méteo pour cette ville"
 }

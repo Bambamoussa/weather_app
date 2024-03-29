@@ -5,6 +5,7 @@ import 'package:weather/core/custom_widgets/custom_snackbar.dart';
 import 'package:weather/core/custom_widgets/custom_text_field.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:weather/core/styles/weather_colors.dart';
+import 'package:weather/core/styles/weather_text_style.dart';
 import 'package:weather/features/weather/presentation/cubit/get_city_list_cubit.dart';
 import 'package:weather/features/weather/presentation/cubit/register_city_cubit.dart';
 
@@ -46,46 +47,59 @@ class _RegisterCityViewState extends State<RegisterCityView> {
       builder: (context, state) => ScaffoldMessenger(
         key: _scaffoldKey,
         child: Scaffold(
-          body: Center(
-            child: SingleChildScrollView(
-              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-              reverse: true,
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: CustomTextField(
-                          textEditingController: _cityController,
-                          label: Text(AppLocalizations.of(context)?.city ?? ''),
-                          hintText: AppLocalizations.of(context)?.enterCity,
-                          validator: ((value) {
-                            if (value!.isEmpty) {
-                              return AppLocalizations.of(context)?.enterCity ??
-                                  '';
-                            }
-                            return null;
-                          }),
-                        ),
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                AppLocalizations.of(context)?.registerCity ?? '',
+                style: WeatherTextStyle.titleMedium700,
+              ),
+              Center(
+                child: SingleChildScrollView(
+                  keyboardDismissBehavior:
+                      ScrollViewKeyboardDismissBehavior.onDrag,
+                  reverse: true,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: CustomTextField(
+                              textEditingController: _cityController,
+                              label: Text(
+                                  AppLocalizations.of(context)?.city ?? ''),
+                              hintText: AppLocalizations.of(context)?.enterCity,
+                              validator: ((value) {
+                                if (value!.isEmpty) {
+                                  return AppLocalizations.of(context)
+                                          ?.enterCity ??
+                                      '';
+                                }
+                                return null;
+                              }),
+                            ),
+                          ),
+                          state.maybeMap(
+                            orElse: () => CustomButton(
+                              mainButtonLabel:
+                                  AppLocalizations.of(context)?.registerCity ??
+                                      '',
+                              onPressed: () => registerCity(),
+                            ),
+                            loading: (_) => const Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                          )
+                        ],
                       ),
-                      state.maybeMap(
-                        orElse: () => CustomButton(
-                          mainButtonLabel:
-                              AppLocalizations.of(context)?.registerCity ?? '',
-                          onPressed: () => registerCity(),
-                        ),
-                        loading: (_) => const Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                      )
-                    ],
+                    ),
                   ),
                 ),
               ),
-            ),
+            ],
           ),
         ),
       ),

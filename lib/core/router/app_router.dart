@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weather/core/router/route_name.dart';
+import 'package:weather/core/styles/weather_colors.dart';
 import 'package:weather/features/auth/presentation/pages/login_page.dart';
-import 'package:weather/features/auth/presentation/pages/register_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:weather/features/auth/presentation/pages/register_page.dart';
 import 'package:weather/features/weather/presentation/pages/register_city_page.dart';
+import 'package:weather/features/weather/presentation/views/weather_city_view.dart';
 import 'package:weather/features/weather/presentation/views/weather_view.dart';
 
 class RouteGenerator {
@@ -40,26 +42,23 @@ class RouteGenerator {
                   child: WeatherView(),
                 ),
               ),
-            ],
-          ),
-          StatefulShellBranch(
-            navigatorKey: GlobalKey<NavigatorState>(debugLabel: 'AddCityNav'),
-            routes: [
               GoRoute(
-                path: '/add',
+                path: '/city/description',
+                name: RouteName.cityDescription,
                 pageBuilder: (context, state) => const NoTransitionPage(
-                  child: RegisterCityPage(),
+                  child: WeatherCityView(),
                 ),
               ),
             ],
           ),
           StatefulShellBranch(
-            navigatorKey: GlobalKey<NavigatorState>(debugLabel: 'CityNav'),
+            navigatorKey: GlobalKey<NavigatorState>(debugLabel: 'RegisterCityNav'),
             routes: [
               GoRoute(
-                path: '/city',
+                path: '/register/city',
+                name: RouteName.registerCity,
                 pageBuilder: (context, state) => const NoTransitionPage(
-                  child: Text('city'),
+                  child: RegisterCityPage(),
                 ),
               ),
             ],
@@ -118,21 +117,27 @@ class ScaffoldWithNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(AppLocalizations.of(context)?.weather_app ?? ''),
+      ),
       body: body,
       bottomNavigationBar: NavigationBar(
+        backgroundColor: WeatherColors.successSU500,
+        indicatorColor: WeatherColors.successSU100,
         selectedIndex: selectedIndex,
         destinations: [
           NavigationDestination(
             label: AppLocalizations.of(context)?.home ?? '',
-            icon: const Icon(Icons.home),
+            icon: const Icon(
+              Icons.location_city,
+            ),
           ),
           NavigationDestination(
             label: AppLocalizations.of(context)?.add ?? '',
-            icon: const Icon(Icons.event),
-          ),
-          NavigationDestination(
-            label: AppLocalizations.of(context)?.city ?? '',
-            icon: const Icon(Icons.location_city),
+            icon: const Icon(
+              Icons.app_registration_outlined,
+            ),
           ),
         ],
         onDestinationSelected: onDestinationSelected,

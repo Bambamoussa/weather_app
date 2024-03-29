@@ -4,7 +4,6 @@ import 'package:dio/dio.dart';
 import 'package:logging/logging.dart';
 import 'package:weather/core/error/exception.dart';
 
-
 //this pattern is similar to the retrofit pattern
 abstract class RemoteDataSource {
   RemoteDataSource({required this.dio, String? baseUrl}) {
@@ -16,7 +15,7 @@ abstract class RemoteDataSource {
 
   final Dio dio;
 
-  int get millisecondsTimeoutWs => const Duration(seconds: 10).inMilliseconds;
+  final millisecondsTimeoutWs = const Duration(seconds: 10);
 
   void _initDioClient() {
     final log = Logger('[${runtimeType.toString()}] ');
@@ -35,8 +34,8 @@ abstract class RemoteDataSource {
             ..validateStatus = (status) {
               return status! < 400;
             }
-            ..connectTimeout = millisecondsTimeoutWs as Duration?
-            ..receiveTimeout = millisecondsTimeoutWs as Duration?;
+            ..connectTimeout = millisecondsTimeoutWs
+            ..receiveTimeout = millisecondsTimeoutWs;
 
           handler.next(options);
         },
@@ -120,7 +119,9 @@ abstract class RemoteDataSource {
     Future<Response<T>> request() => dio.patch<T>(
           _path(apiEndpoint),
           data: body,
-          options: (token != null) ? Options(headers: {'Authorization': 'Bearer $token'}) : Options(),
+          options: (token != null)
+              ? Options(headers: {'Authorization': 'Bearer $token'})
+              : Options(),
         );
 
     return _performRequestApi<T>(request);
@@ -134,7 +135,9 @@ abstract class RemoteDataSource {
     Future<Response<T>> request() => dio.put<T>(
           _path(apiEndpoint),
           data: data,
-          options: (token != null) ? Options(headers: {'Authorization': 'Bearer $token'}) : Options(),
+          options: (token != null)
+              ? Options(headers: {'Authorization': 'Bearer $token'})
+              : Options(),
         );
 
     return _performRequestApi<T>(request);
@@ -176,7 +179,8 @@ abstract class RemoteDataSource {
     } on DioException catch (e) {
       if (e.type == DioExceptionType.connectionTimeout ||
           e.type == DioExceptionType.receiveTimeout ||
-          e.type == DioExceptionType.sendTimeout) {
+          e.type == DioExceptionType.sendTimeout ||
+          e.type == DioExceptionType.unknown) {
         throw const TimeoutException();
       }
 

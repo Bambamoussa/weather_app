@@ -2,11 +2,14 @@ part of '../../../di/injection_container.dart';
 
 void _featureWeather() {
   sl
+    // DataSources
+    ..injectDataSource<WeatherRemoteDataSource>(
+        () => WeatherRemoteDataSourceImpl(dio: dio))
+
     // Repositories
     ..injectRepository<WeatherRepository>(
       () => WeatherRepositoryImpl(
-        networkInfo: sl(),
-      ),
+          networkInfo: sl(), weatherRemoteDataSource: sl()),
     )
     // UseCases
     ..injectUseCase<RegisterCityUseCases>(
@@ -19,6 +22,12 @@ void _featureWeather() {
         sl(),
       ),
     )
+    ..injectUseCase<WeatherUseCases>(
+      () => WeatherUseCases(
+        sl(),
+      ),
+    )
+
 
     //cubit
     ..injectCubit<RegisterCityCubit>(
@@ -33,7 +42,7 @@ void _featureWeather() {
     )
     ..injectCubit<WeatherCubit>(
       () => WeatherCubit(
-        registerCityUseCases: sl(),
+        weatherUseCases: sl(),
       ),
     );
 }

@@ -115,7 +115,7 @@ final ThemeData weatherTheme = ThemeData(
     elevation: 10,
     shadowColor: WeatherColors.neutralN700,
     toolbarHeight: 70,
-    backgroundColor: Colors.white,
+    backgroundColor: WeatherColors.successSU500,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(
         bottom: Radius.circular(24),
