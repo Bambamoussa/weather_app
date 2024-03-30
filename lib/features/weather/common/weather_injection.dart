@@ -5,12 +5,16 @@ void _featureWeather() {
     // DataSources
     ..injectDataSource<WeatherRemoteDataSource>(
         () => WeatherRemoteDataSourceImpl(dio: dio))
+    ..injectDataSource<WeatherLocalDataSource>(
+      () => WeatherLocalDataSourceImpl(),
+    )
 
     // Repositories
     ..injectRepository<WeatherRepository>(
       () => WeatherRepositoryImpl(
         networkInfo: sl(),
         weatherRemoteDataSource: sl(),
+        weatherLocalDataSource: sl(),
         firebaseAuth: FirebaseAuth.instance,
         firebaseStore: FirebaseFirestore.instance,
       ),

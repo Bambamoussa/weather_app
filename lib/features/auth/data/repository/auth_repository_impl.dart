@@ -14,10 +14,9 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository
     required this.firebaseStore,
   });
 
- 
   final NetworkInfo networkInfo;
   final FirebaseAuth firebaseAuth;
-  final FirebaseFirestore  firebaseStore;
+  final FirebaseFirestore firebaseStore;
 
   @override
   Future<Result<bool>> logIn(
@@ -25,8 +24,8 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository
     String password,
   ) async {
     if (!await networkInfo.isConnected) {
-      return const Result.failure(
-        Failure.offline(),
+      return const Result.success(
+        true,
       );
     }
     try {
@@ -47,6 +46,11 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository
     String email,
     String password,
   ) async {
+    if (!await networkInfo.isConnected) {
+      return const Result.failure(
+        Failure.offline(),
+      );
+    }
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,

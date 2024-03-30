@@ -52,7 +52,8 @@ class RouteGenerator {
             ],
           ),
           StatefulShellBranch(
-            navigatorKey: GlobalKey<NavigatorState>(debugLabel: 'RegisterCityNav'),
+            navigatorKey:
+                GlobalKey<NavigatorState>(debugLabel: 'RegisterCityNav'),
             routes: [
               GoRoute(
                 path: '/register/city',
@@ -128,13 +129,13 @@ class ScaffoldWithNavigationBar extends StatelessWidget {
         selectedIndex: selectedIndex,
         destinations: [
           NavigationDestination(
-            label: AppLocalizations.of(context)?.home ?? '',
+            label: AppLocalizations.of(context)?.city ?? '',
             icon: const Icon(
               Icons.location_city,
             ),
           ),
           NavigationDestination(
-            label: AppLocalizations.of(context)?.add ?? '',
+            label: AppLocalizations.of(context)?.registerCity ?? '',
             icon: const Icon(
               Icons.app_registration_outlined,
             ),

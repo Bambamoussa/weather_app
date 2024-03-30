@@ -10,6 +10,7 @@ import 'package:weather/features/auth/domain/usescases/login_usecases.dart';
 import 'package:weather/features/auth/domain/usescases/register_usecases.dart';
 import 'package:weather/features/auth/presentation/cubit/authentication_cubit.dart';
 import 'package:weather/features/auth/presentation/cubit/credentials_cubit.dart';
+import 'package:weather/features/weather/data/datasource/weather_locale_data_source.dart';
 import 'package:weather/features/weather/data/datasource/weather_remote_data_source.dart';
 import 'package:weather/features/weather/data/repository/weather_repository_impl.dart';
 import 'package:weather/features/weather/domain/repository/weather_repository.dart';
