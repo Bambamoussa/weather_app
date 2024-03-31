@@ -45,7 +45,7 @@ class WeatherRepositoryImpl extends WeatherRepository with BaseRepository {
         'city': city,
       });
 
-      weatherLocalDataSource.cacheUserCityInfo(
+      weatherLocalDataSource.cacheRegisterCity(
         UserModels(
           id: firebaseAuth.currentUser?.uid ?? '',
           city: city,
@@ -64,8 +64,7 @@ class WeatherRepositoryImpl extends WeatherRepository with BaseRepository {
     //is Not Connected
     if (!await networkInfo.isConnected) {
       try {
-        final weatherLocalData =
-            await weatherLocalDataSource.getLastUserCityInfo();
+        final weatherLocalData = await weatherLocalDataSource.getCacheCities();
 
         final userList = List<UserEntity>.from(
           weatherLocalData.map(
