@@ -21,7 +21,7 @@ mixin _$GetCityListState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<UserEntity> userCityList) success,
-    required TResult Function(String messageFailure) error,
+    required TResult Function(String messageFailure, Failure failure) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$GetCityListState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<UserEntity> userCityList)? success,
-    TResult? Function(String messageFailure)? error,
+    TResult? Function(String messageFailure, Failure failure)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$GetCityListState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<UserEntity> userCityList)? success,
-    TResult Function(String messageFailure)? error,
+    TResult Function(String messageFailure, Failure failure)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -130,7 +130,7 @@ class _$GetCityListStateInitialImpl implements _GetCityListStateInitial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<UserEntity> userCityList) success,
-    required TResult Function(String messageFailure) error,
+    required TResult Function(String messageFailure, Failure failure) error,
   }) {
     return initial();
   }
@@ -141,7 +141,7 @@ class _$GetCityListStateInitialImpl implements _GetCityListStateInitial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<UserEntity> userCityList)? success,
-    TResult? Function(String messageFailure)? error,
+    TResult? Function(String messageFailure, Failure failure)? error,
   }) {
     return initial?.call();
   }
@@ -152,7 +152,7 @@ class _$GetCityListStateInitialImpl implements _GetCityListStateInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<UserEntity> userCityList)? success,
-    TResult Function(String messageFailure)? error,
+    TResult Function(String messageFailure, Failure failure)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -247,7 +247,7 @@ class _$GetCityListStateLoadingImpl implements _GetCityListStateLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<UserEntity> userCityList) success,
-    required TResult Function(String messageFailure) error,
+    required TResult Function(String messageFailure, Failure failure) error,
   }) {
     return loading();
   }
@@ -258,7 +258,7 @@ class _$GetCityListStateLoadingImpl implements _GetCityListStateLoading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<UserEntity> userCityList)? success,
-    TResult? Function(String messageFailure)? error,
+    TResult? Function(String messageFailure, Failure failure)? error,
   }) {
     return loading?.call();
   }
@@ -269,7 +269,7 @@ class _$GetCityListStateLoadingImpl implements _GetCityListStateLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<UserEntity> userCityList)? success,
-    TResult Function(String messageFailure)? error,
+    TResult Function(String messageFailure, Failure failure)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -399,7 +399,7 @@ class _$GetCityListStateSuccessImpl implements _GetCityListStateSuccess {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<UserEntity> userCityList) success,
-    required TResult Function(String messageFailure) error,
+    required TResult Function(String messageFailure, Failure failure) error,
   }) {
     return success(userCityList);
   }
@@ -410,7 +410,7 @@ class _$GetCityListStateSuccessImpl implements _GetCityListStateSuccess {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<UserEntity> userCityList)? success,
-    TResult? Function(String messageFailure)? error,
+    TResult? Function(String messageFailure, Failure failure)? error,
   }) {
     return success?.call(userCityList);
   }
@@ -421,7 +421,7 @@ class _$GetCityListStateSuccessImpl implements _GetCityListStateSuccess {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<UserEntity> userCityList)? success,
-    TResult Function(String messageFailure)? error,
+    TResult Function(String messageFailure, Failure failure)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -486,7 +486,9 @@ abstract class _$$GetCityListStateErrorImplCopyWith<$Res> {
           $Res Function(_$GetCityListStateErrorImpl) then) =
       __$$GetCityListStateErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String messageFailure});
+  $Res call({String messageFailure, Failure failure});
+
+  $FailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
@@ -501,27 +503,43 @@ class __$$GetCityListStateErrorImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? messageFailure = null,
+    Object? failure = null,
   }) {
     return _then(_$GetCityListStateErrorImpl(
       messageFailure: null == messageFailure
           ? _value.messageFailure
           : messageFailure // ignore: cast_nullable_to_non_nullable
               as String,
+      failure: null == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Failure,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FailureCopyWith<$Res> get failure {
+    return $FailureCopyWith<$Res>(_value.failure, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$GetCityListStateErrorImpl implements _GetCityListStateError {
-  const _$GetCityListStateErrorImpl({required this.messageFailure});
+  const _$GetCityListStateErrorImpl(
+      {required this.messageFailure, required this.failure});
 
   @override
   final String messageFailure;
+  @override
+  final Failure failure;
 
   @override
   String toString() {
-    return 'GetCityListState.error(messageFailure: $messageFailure)';
+    return 'GetCityListState.error(messageFailure: $messageFailure, failure: $failure)';
   }
 
   @override
@@ -530,11 +548,12 @@ class _$GetCityListStateErrorImpl implements _GetCityListStateError {
         (other.runtimeType == runtimeType &&
             other is _$GetCityListStateErrorImpl &&
             (identical(other.messageFailure, messageFailure) ||
-                other.messageFailure == messageFailure));
+                other.messageFailure == messageFailure) &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, messageFailure);
+  int get hashCode => Object.hash(runtimeType, messageFailure, failure);
 
   @JsonKey(ignore: true)
   @override
@@ -549,9 +568,9 @@ class _$GetCityListStateErrorImpl implements _GetCityListStateError {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<UserEntity> userCityList) success,
-    required TResult Function(String messageFailure) error,
+    required TResult Function(String messageFailure, Failure failure) error,
   }) {
-    return error(messageFailure);
+    return error(messageFailure, failure);
   }
 
   @override
@@ -560,9 +579,9 @@ class _$GetCityListStateErrorImpl implements _GetCityListStateError {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<UserEntity> userCityList)? success,
-    TResult? Function(String messageFailure)? error,
+    TResult? Function(String messageFailure, Failure failure)? error,
   }) {
-    return error?.call(messageFailure);
+    return error?.call(messageFailure, failure);
   }
 
   @override
@@ -571,11 +590,11 @@ class _$GetCityListStateErrorImpl implements _GetCityListStateError {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<UserEntity> userCityList)? success,
-    TResult Function(String messageFailure)? error,
+    TResult Function(String messageFailure, Failure failure)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(messageFailure);
+      return error(messageFailure, failure);
     }
     return orElse();
   }
@@ -619,10 +638,12 @@ class _$GetCityListStateErrorImpl implements _GetCityListStateError {
 }
 
 abstract class _GetCityListStateError implements GetCityListState {
-  const factory _GetCityListStateError({required final String messageFailure}) =
-      _$GetCityListStateErrorImpl;
+  const factory _GetCityListStateError(
+      {required final String messageFailure,
+      required final Failure failure}) = _$GetCityListStateErrorImpl;
 
   String get messageFailure;
+  Failure get failure;
   @JsonKey(ignore: true)
   _$$GetCityListStateErrorImplCopyWith<_$GetCityListStateErrorImpl>
       get copyWith => throw _privateConstructorUsedError;

@@ -55,7 +55,7 @@ class _RegisterViewState extends State<RegisterView> {
                   WeatherColors.errorD300,
                 );
               },
-              success: () => context.goNamed(RouteName.weather),
+              success: () => context.goNamed(RouteName.cities),
             );
           },
           builder: (context, state) => Center(

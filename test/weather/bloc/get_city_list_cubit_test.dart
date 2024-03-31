@@ -55,7 +55,10 @@ void main() {
 
               final expectedStates = [
                 const GetCityListState.loading(),
-                const GetCityListState.error(messageFailure: ''),
+                const GetCityListState.error(
+                  messageFailure: '',
+                  failure: Failure.server(),
+                ),
               ];
 
               expectLater(

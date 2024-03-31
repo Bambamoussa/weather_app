@@ -34,9 +34,7 @@ class Failure with _$Failure {
   }
 
   String? errorMessageWidget(BuildContext context) {
-    if (this is FailureOffline || this is FailureTimeout) {
-      return AppLocalizations.of(context)?.noInternet;
-    } else if (this is FailureServer) {
+    if (this is FailureServer) {
       return AppLocalizations.of(context)?.appUnderMaintenance;
     }
     return null;

@@ -1,6 +1,6 @@
 class RouteName {
   RouteName._();
-  static const String weather = 'weather';
+  static const String cities = 'cities';
   static const String registerCity = '/register/city';
   static const String register = 'register';
   static const String login = 'login';

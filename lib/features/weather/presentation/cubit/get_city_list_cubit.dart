@@ -18,14 +18,16 @@ class GetCityListCubit extends Cubit<GetCityListState> {
     getCityListUseCases.getCityList().then(
           (result) => result.when(
             success: (userList) {
-               
               emit(
                 GetCityListState.success(userCityList: userList),
               );
             },
             failure: (Failure failure) {
               emit(
-                GetCityListState.error(messageFailure: failure.message ?? ''),
+                GetCityListState.error(
+                  messageFailure: failure.message ?? '',
+                  failure: failure,
+                ),
               );
             },
           ),

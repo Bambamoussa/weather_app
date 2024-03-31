@@ -5,9 +5,9 @@ import 'package:weather/core/styles/weather_colors.dart';
 import 'package:weather/features/auth/presentation/pages/login_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:weather/features/auth/presentation/pages/register_page.dart';
+import 'package:weather/features/weather/presentation/pages/cities_page.dart';
 import 'package:weather/features/weather/presentation/pages/register_city_page.dart';
 import 'package:weather/features/weather/presentation/views/weather_city_view.dart';
-import 'package:weather/features/weather/presentation/views/weather_view.dart';
 
 class RouteGenerator {
   RouteGenerator._();
@@ -36,10 +36,10 @@ class RouteGenerator {
             navigatorKey: GlobalKey<NavigatorState>(debugLabel: 'WeatherNav'),
             routes: [
               GoRoute(
-                path: '/weather',
-                name: RouteName.weather,
+                path: '/cities',
+                name: RouteName.cities,
                 pageBuilder: (context, state) => const NoTransitionPage(
-                  child: WeatherView(),
+                  child: CitiesPage(),
                 ),
               ),
               GoRoute(
@@ -81,7 +81,7 @@ class ScaffoldWithNestedNavigation extends StatelessWidget {
 
   void _goBranch(int index, BuildContext context) {
     if (index == 0) {
-      context.go('/weather');
+      context.go('/cities');
     } else {
       navigationShell.goBranch(
         index,

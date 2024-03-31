@@ -6,6 +6,6 @@ class GetCityListState with _$GetCityListState {
   const factory GetCityListState.loading() = _GetCityListStateLoading;
   const factory GetCityListState.success(
       {required List<UserEntity> userCityList}) = _GetCityListStateSuccess;
-  const factory GetCityListState.error({required String messageFailure}) =
+  const factory GetCityListState.error({required String messageFailure,required Failure failure,}) =
       _GetCityListStateError;
 }

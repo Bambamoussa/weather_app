@@ -60,7 +60,7 @@ final ThemeData weatherTheme = ThemeData(
     // ParagraphXSmall
     labelSmall: WeatherTextStyle.paragraphXSmall400,
   ),
-  // Elevetated Button Illicado
+  // Elevetated Button
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       elevation: MaterialStateProperty.all<double>(0),
@@ -121,5 +121,8 @@ final ThemeData weatherTheme = ThemeData(
         bottom: Radius.circular(24),
       ),
     ),
+  ),
+  progressIndicatorTheme: const ProgressIndicatorThemeData(
+    color: WeatherColors.successSU500,
   ),
 );
