@@ -7,10 +7,10 @@ import 'package:weather/core/error/failure.dart';
 import 'package:weather/core/network/network_info.dart';
 import 'package:weather/features/weather/data/datasource/weather_locale_data_source.dart';
 import 'package:weather/features/weather/data/datasource/weather_remote_data_source.dart';
-import 'package:weather/features/weather/data/models/user_model.dart';
+import 'package:weather/features/weather/data/models/city_model.dart';
 import 'package:weather/features/weather/data/models/weather_model.dart';
 import 'package:weather/features/weather/domain/entity/main_weather_entity.dart';
-import 'package:weather/features/weather/domain/entity/user_entity.dart';
+import 'package:weather/features/weather/domain/entity/city_entity.dart';
 import 'package:weather/features/weather/domain/entity/weather_entity.dart';
 import 'package:weather/features/weather/domain/repository/weather_repository.dart';
 
@@ -40,13 +40,13 @@ class WeatherRepositoryImpl extends WeatherRepository with BaseRepository {
 
     //isConnected
     try {
-      firebaseStore.collection("users").doc().set({
+      firebaseStore.collection("cities").doc().set({
         'id': firebaseAuth.currentUser?.uid,
         'city': city,
       });
 
       weatherLocalDataSource.cacheRegisterCity(
-        UserModels(
+        CityModels(
           id: firebaseAuth.currentUser?.uid ?? '',
           city: city,
         ),
@@ -60,21 +60,21 @@ class WeatherRepositoryImpl extends WeatherRepository with BaseRepository {
   }
 
   @override
-  Future<Result<List<UserEntity>>> getcityList() async {
+  Future<Result<List<CityEntity>>> getcityList() async {
     //is Not Connected
     if (!await networkInfo.isConnected) {
       try {
         final weatherLocalData = await weatherLocalDataSource.getCacheCities();
 
-        final userList = List<UserEntity>.from(
+        final cities = List<CityEntity>.from(
           weatherLocalData.map(
-            (user) => UserEntity(
-              id: user.id,
-              city: user.city,
+            (city) => CityEntity(
+              id: city.id,
+              city: city.city,
             ),
           ),
         );
-        return Result.success(userList);
+        return Result.success(cities);
       } on CacheException {
         return const Result.failure(
           Failure.cache(),
@@ -84,20 +84,20 @@ class WeatherRepositoryImpl extends WeatherRepository with BaseRepository {
 
     //isConnected
     try {
-      final user = await firebaseStore
-          .collection('users')
+      final citiesCollection = await firebaseStore
+          .collection('cities')
           .where(
             'id',
             isEqualTo: firebaseAuth.currentUser?.uid,
           )
           .get();
 
-      final userList = user.docs
+      final citiesEntity = citiesCollection.docs
           .map(
-            (user) => UserModels.fromSnapshot(user).toDomain(),
+            (user) => CityModels.fromSnapshot(user).toDomain(),
           )
           .toList();
-      return Result.success(userList);
+      return Result.success(citiesEntity);
     } on Exception catch (e) {
       return Result.failure(
         dispatchException(e),

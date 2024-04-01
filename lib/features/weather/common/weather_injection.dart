@@ -25,8 +25,8 @@ void _featureWeather() {
         sl(),
       ),
     )
-    ..injectUseCase<GetCityListUseCases>(
-      () => GetCityListUseCases(
+    ..injectUseCase<GetCitiesUseCases>(
+      () => GetCitiesUseCases(
         sl(),
       ),
     )
@@ -42,8 +42,8 @@ void _featureWeather() {
         registerCityUseCases: sl(),
       ),
     )
-    ..injectCubit<GetCityListCubit>(
-      () => GetCityListCubit(
+    ..injectCubit<GetCitiesCubit>(
+      () => GetCitiesCubit(
         getCityListUseCases: sl(),
       ),
     )

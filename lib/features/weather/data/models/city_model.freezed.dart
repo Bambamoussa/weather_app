@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'user_model.dart';
+part of 'city_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,28 +15,28 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UserModels {
+mixin _$CityModels {
   String get id => throw _privateConstructorUsedError;
   String get city => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $UserModelsCopyWith<UserModels> get copyWith =>
+  $CityModelsCopyWith<CityModels> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserModelsCopyWith<$Res> {
-  factory $UserModelsCopyWith(
-          UserModels value, $Res Function(UserModels) then) =
-      _$UserModelsCopyWithImpl<$Res, UserModels>;
+abstract class $CityModelsCopyWith<$Res> {
+  factory $CityModelsCopyWith(
+          CityModels value, $Res Function(CityModels) then) =
+      _$CityModelsCopyWithImpl<$Res, CityModels>;
   @useResult
   $Res call({String id, String city});
 }
 
 /// @nodoc
-class _$UserModelsCopyWithImpl<$Res, $Val extends UserModels>
-    implements $UserModelsCopyWith<$Res> {
-  _$UserModelsCopyWithImpl(this._value, this._then);
+class _$CityModelsCopyWithImpl<$Res, $Val extends CityModels>
+    implements $CityModelsCopyWith<$Res> {
+  _$CityModelsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -63,22 +63,22 @@ class _$UserModelsCopyWithImpl<$Res, $Val extends UserModels>
 }
 
 /// @nodoc
-abstract class _$$UserModelsImplCopyWith<$Res>
-    implements $UserModelsCopyWith<$Res> {
-  factory _$$UserModelsImplCopyWith(
-          _$UserModelsImpl value, $Res Function(_$UserModelsImpl) then) =
-      __$$UserModelsImplCopyWithImpl<$Res>;
+abstract class _$$CityModelsImplCopyWith<$Res>
+    implements $CityModelsCopyWith<$Res> {
+  factory _$$CityModelsImplCopyWith(
+          _$CityModelsImpl value, $Res Function(_$CityModelsImpl) then) =
+      __$$CityModelsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String city});
 }
 
 /// @nodoc
-class __$$UserModelsImplCopyWithImpl<$Res>
-    extends _$UserModelsCopyWithImpl<$Res, _$UserModelsImpl>
-    implements _$$UserModelsImplCopyWith<$Res> {
-  __$$UserModelsImplCopyWithImpl(
-      _$UserModelsImpl _value, $Res Function(_$UserModelsImpl) _then)
+class __$$CityModelsImplCopyWithImpl<$Res>
+    extends _$CityModelsCopyWithImpl<$Res, _$CityModelsImpl>
+    implements _$$CityModelsImplCopyWith<$Res> {
+  __$$CityModelsImplCopyWithImpl(
+      _$CityModelsImpl _value, $Res Function(_$CityModelsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$UserModelsImplCopyWithImpl<$Res>
     Object? id = null,
     Object? city = null,
   }) {
-    return _then(_$UserModelsImpl(
+    return _then(_$CityModelsImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -102,8 +102,8 @@ class __$$UserModelsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UserModelsImpl implements _UserModels {
-  const _$UserModelsImpl({required this.id, required this.city});
+class _$CityModelsImpl implements _CityModels {
+  const _$CityModelsImpl({required this.id, required this.city});
 
   @override
   final String id;
@@ -112,14 +112,14 @@ class _$UserModelsImpl implements _UserModels {
 
   @override
   String toString() {
-    return 'UserModels(id: $id, city: $city)';
+    return 'CityModels(id: $id, city: $city)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserModelsImpl &&
+            other is _$CityModelsImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.city, city) || other.city == city));
   }
@@ -130,14 +130,14 @@ class _$UserModelsImpl implements _UserModels {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UserModelsImplCopyWith<_$UserModelsImpl> get copyWith =>
-      __$$UserModelsImplCopyWithImpl<_$UserModelsImpl>(this, _$identity);
+  _$$CityModelsImplCopyWith<_$CityModelsImpl> get copyWith =>
+      __$$CityModelsImplCopyWithImpl<_$CityModelsImpl>(this, _$identity);
 }
 
-abstract class _UserModels implements UserModels {
-  const factory _UserModels(
+abstract class _CityModels implements CityModels {
+  const factory _CityModels(
       {required final String id,
-      required final String city}) = _$UserModelsImpl;
+      required final String city}) = _$CityModelsImpl;
 
   @override
   String get id;
@@ -145,6 +145,6 @@ abstract class _UserModels implements UserModels {
   String get city;
   @override
   @JsonKey(ignore: true)
-  _$$UserModelsImplCopyWith<_$UserModelsImpl> get copyWith =>
+  _$$CityModelsImplCopyWith<_$CityModelsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

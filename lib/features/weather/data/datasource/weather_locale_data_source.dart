@@ -1,12 +1,12 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:weather/core/utils/capital_latter.dart';
-import 'package:weather/features/weather/data/models/user_model.dart';
+import 'package:weather/features/weather/data/models/city_model.dart';
 import 'package:weather/features/weather/data/models/weather_model.dart';
 
 abstract class WeatherLocalDataSource {
   Future<List<dynamic>> getCacheCities();
   Future<dynamic> getLastWeatherByCityInfo(String city);
-  Future<void> cacheRegisterCity(UserModels userModels);
+  Future<void> cacheRegisterCity(CityModels userModels);
   Future<void> cacheWeatherByCityInfo(WeathersModels weathersModels);
 }
 
@@ -14,16 +14,16 @@ class WeatherLocalDataSourceImpl implements WeatherLocalDataSource {
   WeatherLocalDataSourceImpl();
 
   @override
-  Future<void> cacheRegisterCity(UserModels userModels) async {
-    final myBox = await Hive.openBox('userCity');
-    myBox.add(userModels);
+  Future<void> cacheRegisterCity(CityModels userModels) async {
+    final citiesBox = await Hive.openBox('cities');
+    citiesBox.add(userModels);
   }
 
   @override
   Future<List<dynamic>> getCacheCities() async {
-    final myBox = await Hive.openBox('userCity');
+    final citiesBox = await Hive.openBox('cities');
 
-    return myBox.values.toList();
+    return citiesBox.values.toList();
   }
 
   @override

@@ -15,9 +15,6 @@ class MainWeathersModels with _$MainWeathersModels {
     @JsonKey(name: 'pressure') required double pressure,
     // ignore: invalid_annotation_target
     @JsonKey(name: 'humidity') required double humidity,
-     
-     
- 
   }) = _MainWeathersModels;
 
   factory MainWeathersModels.fromJson(Map<String, dynamic> json) =>
@@ -26,6 +23,11 @@ class MainWeathersModels with _$MainWeathersModels {
 
 extension MainWeathersModelsX on MainWeathersModels {
   MainWeatherEntity toDomain() {
-    return   MainWeatherEntity(temperature: temperature, feelsLike: feelsLike, pressure: pressure, humidity: humidity);
-}
+    return MainWeatherEntity(
+      temperature: temperature,
+      feelsLike: feelsLike,
+      pressure: pressure,
+      humidity: humidity,
+    );
+  }
 }

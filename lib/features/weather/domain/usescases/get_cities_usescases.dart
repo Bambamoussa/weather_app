@@ -1,14 +1,14 @@
 import 'package:weather/core/domain/entities/result.dart';
-import 'package:weather/features/weather/domain/entity/user_entity.dart';
+import 'package:weather/features/weather/domain/entity/city_entity.dart';
 import 'package:weather/features/weather/domain/repository/weather_repository.dart';
 
-class GetCityListUseCases {
+class GetCitiesUseCases {
   final WeatherRepository weatherRepository;
 
-  GetCityListUseCases(
+  GetCitiesUseCases(
     this.weatherRepository,
   );
 
-  Future<Result<List<UserEntity>>> getCityList() async =>
+  Future<Result<List<CityEntity>>> getCityList() async =>
       weatherRepository.getcityList();
 }

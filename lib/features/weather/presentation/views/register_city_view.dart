@@ -6,7 +6,7 @@ import 'package:weather/core/custom_widgets/custom_text_field.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:weather/core/styles/weather_colors.dart';
 import 'package:weather/core/styles/weather_text_style.dart';
-import 'package:weather/features/weather/presentation/cubit/get_city_list_cubit.dart';
+import 'package:weather/features/weather/presentation/cubit/get_cities_cubit.dart';
 import 'package:weather/features/weather/presentation/cubit/register_city_cubit.dart';
 
 class RegisterCityView extends StatefulWidget {
@@ -40,7 +40,7 @@ class _RegisterCityViewState extends State<RegisterCityView> {
               WeatherColors.successSU500,
             );
             _cityController.text = "";
-            context.read<GetCityListCubit>().getCityList();
+            context.read<GetCitiesCubit>().getCities();
           },
         );
       },

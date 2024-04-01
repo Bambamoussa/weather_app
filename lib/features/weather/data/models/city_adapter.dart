@@ -1,13 +1,13 @@
 import 'package:hive/hive.dart';
-import 'package:weather/features/weather/data/models/user_model.dart';
+import 'package:weather/features/weather/data/models/city_model.dart';
 
-class UserAdapter extends TypeAdapter<UserModels> {
+class CityAdapter extends TypeAdapter<CityModels> {
   @override
   final typeId = 1;
 
   @override
-  UserModels read(BinaryReader reader) {
-    return UserModels(
+  CityModels read(BinaryReader reader) {
+    return CityModels(
       id: reader.readString(),
       city: reader.readString(),
        
@@ -15,7 +15,7 @@ class UserAdapter extends TypeAdapter<UserModels> {
   }
 
   @override
-  void write(BinaryWriter writer, UserModels obj,) {
+  void write(BinaryWriter writer, CityModels obj,) {
     writer.writeString(obj.id);
     writer.writeString(obj.city);
   }

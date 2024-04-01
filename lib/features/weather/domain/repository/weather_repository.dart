@@ -1,5 +1,5 @@
 import 'package:weather/core/domain/entities/result.dart';
-import 'package:weather/features/weather/domain/entity/user_entity.dart';
+import 'package:weather/features/weather/domain/entity/city_entity.dart';
 import 'package:weather/features/weather/domain/entity/weather_entity.dart';
 
 abstract class WeatherRepository {
@@ -7,7 +7,7 @@ abstract class WeatherRepository {
     String city,
   );
 
-  Future<Result<List<UserEntity>>> getcityList(
+  Future<Result<List<CityEntity>>> getcityList(
   );
 
    Future<Result<WeatherEntity>> getWeatherByLocation(String location);

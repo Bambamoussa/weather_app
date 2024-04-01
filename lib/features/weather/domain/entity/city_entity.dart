@@ -1,12 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'user_entity.freezed.dart';
+part 'city_entity.freezed.dart';
 
 @freezed
-class UserEntity with _$UserEntity {
-  const factory UserEntity({
+class CityEntity with _$CityEntity {
+  const factory CityEntity({
     required String id,
     required String city,
      
-  }) = _UserEntity;
+  }) = _CityEntity;
 }

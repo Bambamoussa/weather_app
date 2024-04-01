@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:weather/features/weather/data/models/main_weather_adapter.dart';
-import 'package:weather/features/weather/data/models/user_adapter.dart';
+import 'package:weather/features/weather/data/models/city_adapter.dart';
 import 'package:weather/features/weather/data/models/weather_adapter.dart';
 import 'package:weather/weather_app.dart';
 import 'di/injection_container.dart' as di;
@@ -25,6 +25,6 @@ Future<void> main() async {
   Hive.registerAdapter(MainWeatherAdapter());
   di.init();
 
-  Hive.registerAdapter(UserAdapter());
+  Hive.registerAdapter(CityAdapter());
   runApp(const WeatherApp());
 }

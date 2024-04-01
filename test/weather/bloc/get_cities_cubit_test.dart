@@ -2,35 +2,35 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:weather/core/domain/entities/result.dart';
 import 'package:weather/core/error/failure.dart';
-import 'package:weather/features/weather/domain/entity/user_entity.dart';
-import 'package:weather/features/weather/domain/usescases/get_city_list_usescases.dart';
-import 'package:weather/features/weather/presentation/cubit/get_city_list_cubit.dart';
+import 'package:weather/features/weather/domain/entity/city_entity.dart';
+import 'package:weather/features/weather/domain/usescases/get_cities_usescases.dart';
+import 'package:weather/features/weather/presentation/cubit/get_cities_cubit.dart';
 
-class MockGetCityListUseCases extends Mock implements GetCityListUseCases {}
+class MockGetCityListUseCases extends Mock implements GetCitiesUseCases {}
 
 void main() {
-  late GetCityListCubit getCityListCubit;
+  late GetCitiesCubit getCityListCubit;
   late MockGetCityListUseCases mockGetCityListUseCases;
 
   setUp(() {
     mockGetCityListUseCases = MockGetCityListUseCases();
     getCityListCubit =
-        GetCityListCubit(getCityListUseCases: mockGetCityListUseCases);
+        GetCitiesCubit(getCityListUseCases: mockGetCityListUseCases);
   });
 
   group(
     'GetCityListCubit',
     () {
       test('initial state is GetCityListState.initial', () {
-        expect(getCityListCubit.state, const GetCityListState.initial());
+        expect(getCityListCubit.state, const GetCitiesState.initial());
       });
 
       group(
         'getCityList',
         () {
           const cityList = [
-            UserEntity(id: "1", city: 'Paris'),
-            UserEntity(id: "2", city: 'London'),
+            CityEntity(id: "1", city: 'Paris'),
+            CityEntity(id: "2", city: 'London'),
           ];
 
           test('emits [loading, success] when successful', () async {
@@ -38,13 +38,13 @@ void main() {
                 .thenAnswer((_) async => const Result.success(cityList));
 
             final expectedStates = [
-              const GetCityListState.loading(),
-              const GetCityListState.success(userCityList: cityList),
+              const GetCitiesState.loading(),
+              const GetCitiesState.success(cities: cityList),
             ];
 
             expectLater(getCityListCubit.stream, emitsInOrder(expectedStates));
 
-            await getCityListCubit.getCityList();
+            await getCityListCubit.getCities();
           });
 
           test(
@@ -54,8 +54,8 @@ void main() {
                   (_) async => const Result.failure(Failure.server()));
 
               final expectedStates = [
-                const GetCityListState.loading(),
-                const GetCityListState.error(
+                const GetCitiesState.loading(),
+                const GetCitiesState.error(
                   messageFailure: '',
                   failure: Failure.server(),
                 ),
@@ -64,7 +64,7 @@ void main() {
               expectLater(
                   getCityListCubit.stream, emitsInOrder(expectedStates));
 
-              await getCityListCubit.getCityList();
+              await getCityListCubit.getCities();
             },
           );
         },

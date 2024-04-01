@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weather/core/router/route_name.dart';
-import 'package:weather/features/weather/domain/entity/user_entity.dart';
+import 'package:weather/features/weather/domain/entity/city_entity.dart';
 import 'package:weather/features/weather/presentation/cubit/weather_cubit.dart';
 import 'package:weather/features/weather/presentation/widgets/city_item.dart';
 
 class CitiesView extends StatelessWidget {
-  final List<UserEntity> cities;
+  final List<CityEntity> cities;
   const CitiesView({
     required this.cities,
     super.key,
